@@ -1,0 +1,22 @@
+[package]
+name = "netdma-drivers"
+version = "0.1.0"
+authors = ["Evgeny Rozaliev <rozaliev@gmail.com>"]
+
+[lib]
+name = "drivers"
+
+[dependencies]
+libc = "*"
+
+[dependencies.netdma-registers]
+path = "../registers"
+
+[dependencies.netdma-hugetlb]
+path = "../hugetlb"
+
+[dependencies.netdma-netbuf]
+path = "../netbuf"
+
+[dependencies.netdma]
+path = "../netdma"
