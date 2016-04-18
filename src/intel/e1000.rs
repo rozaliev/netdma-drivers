@@ -111,6 +111,19 @@ impl<A: Allocator> netdma::Driver<A> for Driver<A> {
         1
     }
 
+    fn get_mac(&self) -> [u8; 6] {
+        let lo = self.registers.ral0.read();
+        let hi = self.registers.rah0.read() as u16;
+
+        [(hi << 8) as u8,
+         (hi & 0x00ff) as u8,
+         (lo >> 24) as u8,
+         (lo >> 16 & 0xff) as u8,
+         (lo >> 8 & 0xff) as u8,
+         (lo & 0xff) as u8]
+
+    }
+
     fn receive(&mut self) {
         self.do_receive()
     }
@@ -144,7 +157,8 @@ impl<A: Allocator> Driver<A> {
 
 
         regs.rctl.disable_EN();
-
+        regs.rdh.write(0);
+        regs.rdl.write(0);
 
         let ring_phy_addr = rx.nic_ring_phy_addr();
 

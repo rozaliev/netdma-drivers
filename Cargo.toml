@@ -20,3 +20,6 @@ path = "../netbuf"
 
 [dependencies.netdma]
 path = "../netdma"
+
+[dependencies.netdma-tcpip]
+path = "../tcpip"
