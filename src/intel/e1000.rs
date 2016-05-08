@@ -91,7 +91,7 @@ registers! {
 
 
 
-     }
+    }
 }
 
 
@@ -158,7 +158,7 @@ impl<A: Allocator> Driver<A> {
 
         regs.rctl.disable_EN();
         regs.rdh.write(0);
-        regs.rdl.write(0);
+        regs.rdt.write(0);
 
         let ring_phy_addr = rx.nic_ring_phy_addr();
 

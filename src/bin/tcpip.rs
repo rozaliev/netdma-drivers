@@ -19,7 +19,6 @@ fn main() {
     let dl = DeviceList::scan();
     println!("{:?}", dl);
 
-
     let addr = env::args().skip(1).next().unwrap();
 
     let dl = DeviceList::scan();
@@ -63,7 +62,4 @@ fn main() {
         tcpip.process();
         drv.transmit();
     }
-
-
-
 }
